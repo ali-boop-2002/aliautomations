@@ -15,6 +15,7 @@ export default function FormPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,13 +30,34 @@ export default function FormPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError('');
 
-    // Here you would typically send the form data to your backend
-    // For now, we'll just simulate a submission
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const response = await fetch('/api/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(
+          payload?.error || 'There was a problem submitting your form.'
+        );
+      }
+
       setSubmitted(true);
-    }, 1000);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'There was a problem submitting your form.';
+      setSubmitError(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -198,6 +220,10 @@ export default function FormPage() {
           <p className="text-center text-sm text-slate-400">
             * Required fields. We'll contact you within 24 hours.
           </p>
+
+          {submitError ? (
+            <p className="text-center text-sm text-red-400">{submitError}</p>
+          ) : null}
         </form>
 
         {/* Back Link */}

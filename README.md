@@ -43,6 +43,19 @@ A professional Next.js landing page for aliautomations, an AI-powered automation
    npm start
    ```
 
+## Form Email Notifications
+
+The form at `/form` now sends every submission to your email via Resend.
+
+1. Copy env template:
+   ```bash
+   cp .env.example .env.local
+   ```
+2. Set:
+   - `RESEND_API_KEY` = your Resend API key
+   - `FORM_NOTIFICATION_TO_EMAIL` = where you want to receive submissions
+   - `FORM_NOTIFICATION_FROM_EMAIL` = sender (must be valid in your Resend setup for production)
+
 ## Customization
 
 ### Add Your Content

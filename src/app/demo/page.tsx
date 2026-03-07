@@ -168,7 +168,10 @@ export default function DemoPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className={`text-3xl font-bold ${textColor}`}>Tickets</h1>
-        <button onClick={() => setShowCTAModal(true)} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+        <button
+          onClick={() => setShowCTAModal(true)}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+        >
           New Ticket
         </button>
       </div>
@@ -311,7 +314,10 @@ export default function DemoPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className={`text-3xl font-bold ${textColor}`}>Approvals</h1>
-        <button onClick={() => setShowCTAModal(true)} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+        <button
+          onClick={() => setShowCTAModal(true)}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+        >
           New Approval
         </button>
       </div>
@@ -628,9 +634,17 @@ export default function DemoPage() {
           {activeTab === "tickets" && <TicketsContent />}
           {activeTab === "approvals" && <ApprovalsContent />}
           {activeTab === "properties" && (
-            <PropertiesContent darkMode={darkMode} onAction={() => setShowCTAModal(true)} />
+            <PropertiesContent
+              darkMode={darkMode}
+              onAction={() => setShowCTAModal(true)}
+            />
           )}
-          {activeTab === "calendar" && <CalendarContent darkMode={darkMode} onAction={() => setShowCTAModal(true)} />}
+          {activeTab === "calendar" && (
+            <CalendarContent
+              darkMode={darkMode}
+              onAction={() => setShowCTAModal(true)}
+            />
+          )}
           {activeTab === "reports" && <ReportsContent darkMode={darkMode} />}
           {activeTab === "audit" && <AuditContent darkMode={darkMode} />}
           {activeTab === "memory" && <MemoryContent darkMode={darkMode} />}
@@ -870,7 +884,10 @@ function PropertiesContent({ darkMode, onAction }) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className={`text-3xl font-bold ${textColor}`}>Properties</h1>
-        <button onClick={onAction} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+        <button
+          onClick={onAction}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+        >
           New Property
         </button>
       </div>
@@ -1111,7 +1128,10 @@ function CalendarContent({ darkMode, onAction }) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className={`text-3xl font-bold ${textColor}`}>Calendar</h1>
-        <button onClick={onAction} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+        <button
+          onClick={onAction}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+        >
           New Event
         </button>
       </div>
