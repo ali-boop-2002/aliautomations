@@ -264,11 +264,11 @@ export default function Home() {
           </div>
 
           {/* Demo Video/Image */}
-          <div className="relative rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 max-h-full">
+          <div className="max-w-5xl mx-auto flex justify-center">
             <img
               src="/images/dashboard.png"
               alt="Demo: Photo → Extraction → Ticket → Sheets Update"
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-[520px] w-auto h-auto object-contain rounded-2xl"
             />
           </div>
 
@@ -441,7 +441,7 @@ export default function Home() {
           </div>
 
           <a
-            href="https://calendly.com"
+            href="/form"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold text-lg rounded-lg transition shadow-lg hover:shadow-xl"
