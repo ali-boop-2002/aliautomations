@@ -100,14 +100,14 @@ export default function Home() {
     <div className="w-full overflow-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md z-50 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center gap-2">
+          <div className="min-w-0 text-base sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent truncate">
             aliautomations
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-2 sm:gap-4 items-center shrink-0">
             <a
               href="/demo"
-              className="text-sm text-slate-300 hover:text-white transition px-4 py-2"
+              className="text-xs sm:text-sm text-slate-300 hover:text-white transition px-3 sm:px-4 py-2"
             >
               See Demo
             </a>
@@ -115,7 +115,7 @@ export default function Home() {
               href="/form"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition"
             >
               Book Pilot
             </a>
@@ -133,31 +133,31 @@ export default function Home() {
                 ✨ AI-Powered Property Operations
               </div>
 
-              <h1 className="text-5xl sm:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-6xl font-bold leading-tight break-words">
                 Turn Violations & Work Orders into{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                   Autopilot
                 </span>
               </h1>
 
-              <p className="text-xl text-slate-400 leading-relaxed">
+              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">
                 Extract from photos/PDFs → Auto-tickets → Sheets/Airtable
                 updates → Rules & Reminders. No rip-and-replace.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full">
                 <a
                   href="/form"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg transition shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-lg transition shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <Calendar size={20} />
                   Book Free 15-min Pilot
                 </a>
                 <a
                   href="/demo"
-                  className="px-8 py-4 border border-slate-600 hover:border-blue-500 text-white font-semibold rounded-lg transition inline-flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 sm:px-8 py-3 sm:py-4 border border-slate-600 hover:border-blue-500 text-white font-semibold rounded-lg transition inline-flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <Play size={20} />
                   See Demo
@@ -181,13 +181,13 @@ export default function Home() {
             </div>
 
             {/* Right - Image Slideshow */}
-            <div className="relative h-screen max-h-[500px]">
-              <div className="relative w-full h-full aspect-video rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 flex items-center justify-center">
+            <div className="relative w-full max-w-full overflow-hidden">
+              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:h-[360px] lg:h-[500px] rounded-2xl overflow-hidden bg-slate-800 border border-slate-700 flex items-center justify-center">
                 {/* Image */}
                 <img
                   src={slideImages[currentImageIndex].src}
                   alt={slideImages[currentImageIndex].alt}
-                  className="w-full h-full object-contain p-4"
+                  className="w-full h-full object-cover sm:object-contain p-0 sm:p-4"
                 />
 
                 {/* Navigation Buttons */}

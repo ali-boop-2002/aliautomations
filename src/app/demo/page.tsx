@@ -18,7 +18,7 @@ import {
   X,
   Send,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DemoPage() {
   const [activeTab, setActiveTab] = useState("home");
@@ -34,6 +34,17 @@ export default function DemoPage() {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [showCTAModal, setShowCTAModal] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarOpen(window.innerWidth >= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const menuItems = [
     { id: "home", label: "Home", icon: Home },
@@ -592,6 +603,27 @@ export default function DemoPage() {
         </div>
       </nav>
 
+      <div className="md:hidden pt-16 px-4">
+        <div
+          className={`mt-3 rounded-lg border px-4 py-3 text-sm ${
+            darkMode
+              ? "bg-slate-900/70 border-slate-700 text-slate-300"
+              : "bg-slate-100 border-slate-300 text-slate-700"
+          }`}
+        >
+          This demo works on mobile, but it is optimized for desktop and is
+          best viewed on a laptop/desktop screen.
+        </div>
+      </div>
+
+      {sidebarOpen && (
+        <button
+          className="md:hidden fixed inset-0 top-16 bg-black/50 z-20"
+          onClick={() => setSidebarOpen(false)}
+          aria-label="Close menu overlay"
+        />
+      )}
+
       <aside
         className={`fixed left-0 top-16 h-[calc(100vh-64px)] w-64 transition-transform duration-300 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -607,7 +639,10 @@ export default function DemoPage() {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => {
+                  setActiveTab(item.id);
+                  if (window.innerWidth < 768) setSidebarOpen(false);
+                }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition ${
                   activeTab === item.id
                     ? darkMode
@@ -627,7 +662,7 @@ export default function DemoPage() {
       </aside>
 
       <main
-        className={`pt-20 transition-all duration-300 ${sidebarOpen ? "ml-64" : "ml-0"}`}
+        className={`pt-20 transition-all duration-300 ${sidebarOpen ? "md:ml-64" : "ml-0"}`}
       >
         <div className="max-w-7xl mx-auto px-6 py-8">
           {activeTab === "home" && <HomeDashboard />}
