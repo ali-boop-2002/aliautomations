@@ -45,7 +45,7 @@ export default function Home() {
   const reviews = [
     {
       name: "Client 1",
-      title: "JavaScript Development Project",
+      title: "The Brodsky Organization",
       rating: 5,
       text: "Ali did an excellent job. Early on it was clear that he deeply understands what he's building and approaches his work with real passion. He's eager to learn, and more importantly, he picks up new skills and tools incredibly fast. Great communication, great attitude, and solid results. I'll definitely be working with him again.",
       badges: [
@@ -56,14 +56,14 @@ export default function Home() {
     },
     {
       name: "Client 2",
-      title: "Stripe Integration Project",
+      title: "Renaissance Properties New York",
       rating: 5,
       text: "Thoroughly enjoyed working with Ali! Brilliant young man with a brilliant future! Will work with him again.",
       badges: ["Collaborative"],
     },
     {
       name: "Client 3",
-      title: "Next.js Design Alignment",
+      title: "Vision Realty & Management",
       rating: 5,
       text: "Ali is an amazing professional who completed the task efficiently and with great attention to detail. I truly appreciate the high-quality work and look forward to collaborating again soon!",
       badges: [
