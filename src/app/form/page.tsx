@@ -48,6 +48,14 @@ export default function FormPage() {
         );
       }
 
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'form',
+          event_label: 'pilot_form_submit',
+          value: 1,
+        });
+      }
+
       setSubmitted(true);
     } catch (error) {
       const message =

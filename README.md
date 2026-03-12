@@ -56,6 +56,18 @@ The form at `/form` now sends every submission to your email via Resend.
    - `FORM_NOTIFICATION_TO_EMAIL` = where you want to receive submissions
    - `FORM_NOTIFICATION_FROM_EMAIL` = sender (must be valid in your Resend setup for production)
 
+## Visitor Analytics + Heatmaps
+
+This project supports:
+- `Google Analytics 4` for traffic and conversion tracking
+- `Microsoft Clarity` for heatmaps and session recordings
+
+1. In `.env.local`, set:
+   - `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX`
+   - `NEXT_PUBLIC_CLARITY_ID=xxxxxxxxxx`
+2. Restart app/deployment after adding env vars.
+3. Form submissions fire a GA4 `generate_lead` event automatically.
+
 ## Customization
 
 ### Add Your Content
